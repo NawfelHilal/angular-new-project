@@ -5,6 +5,7 @@ export class Product {
   public imageUrl!: string;
   public likes: number = 0;
   public btnValue!: string;
+  public date!: Date;
   public size?: Array<string>;
 
   constructor(
@@ -14,6 +15,7 @@ export class Product {
     imageUrl: string,
     likes: number,
     btnValue: string,
+    date: Date,
     size?: Array<string>
   ) {
     this.marque = marque;
@@ -23,5 +25,6 @@ export class Product {
     this.likes = likes;
     this.btnValue = btnValue;
     this.size = size;
+    this.date = date;
   }
 }
