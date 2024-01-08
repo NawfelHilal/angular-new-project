@@ -82,7 +82,11 @@ import { ProductsService } from "../services/products.service";
           </div>
         </div>
         <br />
-
+        <button (click)="toggleFavorite(myProduct)">
+          {{
+            myProduct.isFavorite ? "Retirer des favoris" : "Ajouter aux favoris"
+          }}
+        </button>
         <div class="date">
           {{ myProduct.date | date : "YYYY/MM/dd" }}
         </div>
@@ -99,6 +103,25 @@ export class ProductCardComponent {
 
   onLike() {
     this.productService.onLikeProduct(this.myProduct);
+  }
+  toggleFavorite(product: Product) {
+    product.isFavorite = !product.isFavorite;
+
+    let favoriteProducts: Product[] = JSON.parse(
+      localStorage.getItem("favoriteProducts") || "[]"
+    );
+
+    const index = favoriteProducts.findIndex(
+      (p) => p.modele === product.modele
+    );
+
+    if (product.isFavorite && index === -1) {
+      favoriteProducts.push(product);
+    } else if (!product.isFavorite && index !== -1) {
+      favoriteProducts.splice(index, 1);
+    }
+
+    localStorage.setItem("favoriteProducts", JSON.stringify(favoriteProducts));
   }
 
   newPrice(size: string) {

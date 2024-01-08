@@ -6,6 +6,7 @@ export class Product {
   public likes: number = 0;
   public btnValue!: string;
   public date!: Date;
+  public isFavorite: boolean = false;
   public size?: Array<string>;
 
   constructor(
@@ -16,6 +17,7 @@ export class Product {
     likes: number,
     btnValue: string,
     date: Date,
+    isFavorite: boolean,
     size?: Array<string>
   ) {
     this.marque = marque;
@@ -24,7 +26,8 @@ export class Product {
     this.imageUrl = imageUrl;
     this.likes = likes;
     this.btnValue = btnValue;
-    this.size = size;
     this.date = date;
+    this.isFavorite = isFavorite;
+    this.size = size;
   }
 }

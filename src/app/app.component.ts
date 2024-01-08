@@ -64,7 +64,17 @@ export class AppComponent implements OnInit {
   constructor(private productService: ProductsService) {}
 
   ngOnInit(): void {
-    this.products = this.productService.products;
+    const favoriteProducts = JSON.parse(
+      localStorage.getItem("favoriteProducts") || "[]"
+    );
+
+    this.products = this.productService.products.map((product) => {
+      product.isFavorite = favoriteProducts.some(
+        (p: { modele: string }) => p.modele === product.modele
+      );
+      return product;
+    });
+
     console.log(this.products);
   }
 

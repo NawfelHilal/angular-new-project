@@ -14,6 +14,7 @@ export class ProductsService {
       0,
       "Like",
       new Date(),
+      false,
       ["XS", "S", "M", "L"]
     ),
     new Product(
@@ -24,6 +25,7 @@ export class ProductsService {
       0,
       "Like",
       new Date("2022/12/15"),
+      true,
       ["XS", "S", "M", "L"]
     ),
     new Product(
@@ -34,6 +36,7 @@ export class ProductsService {
       0,
       "Like",
       new Date("2023/10/05"),
+      false,
       ["XS", "S", "M", "L"]
     ),
   ];
