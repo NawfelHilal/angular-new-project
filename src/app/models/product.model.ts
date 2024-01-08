@@ -3,6 +3,7 @@ export class Product {
   public modele!: string;
   public prix!: number;
   public imageUrl!: string;
+  public description: string;
   public likes: number = 0;
   public btnValue!: string;
   public date!: Date;
@@ -14,6 +15,7 @@ export class Product {
     modele: string,
     prix: number,
     imageUrl: string,
+    description: string,
     likes: number,
     btnValue: string,
     date: Date,
@@ -24,6 +26,7 @@ export class Product {
     this.modele = modele;
     this.prix = prix;
     this.imageUrl = imageUrl;
+    this.description = description;
     this.likes = likes;
     this.btnValue = btnValue;
     this.date = date;

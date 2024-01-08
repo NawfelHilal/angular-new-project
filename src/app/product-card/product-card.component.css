@@ -1,5 +1,6 @@
 .example-card {
     max-width: 400px;
+    margin-right: 20px;
   }
 
   .example-header-image {
@@ -10,4 +11,27 @@
   .info-card {
     display: inline-flex;
     margin-right: 10px;
+  }
+
+
+  .header {
+    display: flex;
+    justify-content: space-between;
+  }
+  
+  .favicon{
+    background-color: white;
+    border: none;
+  }
+
+  .img{
+    max-height: 250px;
+  }
+
+  .date{
+    font-size: 9px;
+  }
+
+  .priceDate{
+    margin-left: 20px;
   }

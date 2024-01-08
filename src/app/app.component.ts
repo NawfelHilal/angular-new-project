@@ -10,18 +10,15 @@ registerLocaleData(localeFr);
 import { AppPipesModule } from "./pipes/app-pipes.module";
 import { FormsModule } from "@angular/forms";
 import { ProductsService } from "./services/products.service";
+import { MatFormFieldModule } from "@angular/material/form-field";
+import { MatIconModule } from "@angular/material/icon";
+import { HeaderComponent } from "./header/header.component";
+import { FooterComponent } from "./footer/footer.component";
+import { MatButtonModule } from "@angular/material/button";
 
 @Component({
   selector: "app-root",
   standalone: true,
-  imports: [
-    CommonModule,
-    RouterOutlet,
-    ProductCardComponent,
-    MatCardModule,
-    AppPipesModule,
-    FormsModule,
-  ],
   providers: [
     {
       provide: LOCALE_ID,
@@ -30,28 +27,55 @@ import { ProductsService } from "./services/products.service";
   ],
   styleUrls: ["./app.component.css"],
   template: `
-    <input
-      type="text"
-      [(ngModel)]="searchTerm"
-      placeholder="Rechercher un produit"
-    />
-    <button (click)="toggleSorting()">Trier par Date {{ sortTri }}</button>
-    <button (click)="nameSorting()">Trier par Name {{ sortTri }}</button>
-    <div class="product">
-      <app-product-card
-        *ngFor="
-          let product of products
-            | sortByDate : sortTri
-            | search : searchTerm
-            | sortByName : nameSort
-        "
-        [myProduct]="product"
-      />
-    </div>
+    <app-header />
+    <header>
+      <div class="searchdiv">
+        <input
+          class="search"
+          type="text"
+          [(ngModel)]="searchTerm"
+          placeholder="Rechercher un produit"
+        />
+      </div>
+      <div class="divBtn">
+        <button mat-button color="primary" (click)="toggleSorting()">
+          Trier par Date {{ sortTri }}
+        </button>
+        <button mat-button color="primary" (click)="nameSorting()">
+          Trier par Nom {{ sortTri }}
+        </button>
+      </div>
+      <div class="product-container">
+        <app-product-card
+          class="listCard"
+          *ngFor="
+            let product of products
+              | sortByDate : sortTri
+              | search : searchTerm
+              | sortByName : nameSort
+          "
+          [myProduct]="product"
+        />
+      </div>
 
-    <router-outlet></router-outlet>
+      <router-outlet></router-outlet>
+    </header>
+    <app-footer />
   `,
   styles: [],
+  imports: [
+    CommonModule,
+    RouterOutlet,
+    ProductCardComponent,
+    MatCardModule,
+    AppPipesModule,
+    FormsModule,
+    MatFormFieldModule,
+    MatIconModule,
+    HeaderComponent,
+    FooterComponent,
+    MatButtonModule,
+  ],
 })
 export class AppComponent implements OnInit {
   title = "angular-new-project";
