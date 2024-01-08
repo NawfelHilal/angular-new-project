@@ -42,6 +42,6 @@ export class SortByNamePipe implements PipeTransform {
       return products.sort((a, b) => b.marque.localeCompare(a.marque));
     }
 
-    return products; // Si l'ordre n'est pas spécifié, retournez la liste non triée.
+    return products;
   }
 }

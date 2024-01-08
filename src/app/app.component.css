@@ -26,14 +26,12 @@
     display: flex;
     flex-wrap: wrap;
     gap: 20px;
-    align-items: center; /* Permet aux éléments de retourner à la ligne */
-     /* Espacement équilibré entre les éléments */
-     /* Espacement entre les cartes (ajustez selon vos préférences) */
+    align-items: center;
   }
   
   .divBtn{
     display: flex;
-    justify-content: center; /* Centre horizontalement */
+    justify-content: center;
     align-items: center;
     margin-top: 20px;
   }
